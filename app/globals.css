@@ -2,22 +2,52 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-white text-slate-700 font-sans antialiased;
+  }
+  h1, h2, h3, h4 {
+    @apply font-serif text-navy;
+    text-wrap: balance;
+  }
+  ::selection {
+    @apply bg-navy text-white;
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  /* Solid-fill buttons only — no gradients anywhere. */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-md px-6 py-3
+           text-sm font-semibold tracking-wide transition-colors duration-200
+           focus:outline-none focus-visible:ring-2 focus-visible:ring-accent
+           focus-visible:ring-offset-2;
+  }
+  .btn-primary {
+    @apply btn bg-accent text-white hover:bg-accent-dark;
+  }
+  .btn-navy {
+    @apply btn bg-navy text-white hover:bg-navy-700;
+  }
+  .btn-outline {
+    @apply btn border border-white/40 text-white hover:bg-white hover:text-navy;
+  }
+  .btn-ghost {
+    @apply btn border border-slate-300 text-navy hover:border-navy hover:bg-navy hover:text-white;
+  }
+
+  .eyebrow {
+    @apply inline-block text-xs font-semibold uppercase tracking-[0.18em] text-accent;
+  }
+
+  .link-underline {
+    @apply relative font-medium text-navy after:absolute after:inset-x-0 after:-bottom-0.5
+           after:h-px after:origin-left after:scale-x-0 after:bg-accent
+           after:transition-transform hover:after:scale-x-100;
+  }
 }
 
 @layer utilities {
