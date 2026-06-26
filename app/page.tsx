@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, ShieldCheck, Scale, Handshake, Building2, Home, HeartPulse } from "lucide-react";
 import { Container, SectionHeading, CtaBand } from "@/components/ui";
+import Reveal from "@/components/Reveal";
 import {
   company,
   stats,
@@ -50,7 +51,7 @@ export default function HomePage() {
           />
         </div>
         <Container className="relative z-20 grid items-center gap-12 py-20 lg:grid-cols-12 lg:py-28">
-          <div className="lg:col-span-7">
+          <Reveal className="lg:col-span-7">
             <span className="eyebrow">{company.tagline}</span>
             <h1 className="mt-4 text-4xl font-semibold leading-[1.1] !text-white sm:text-5xl lg:text-6xl">
               The right coverage, from an agency that works for you.
@@ -67,10 +68,10 @@ export default function HomePage() {
                 Explore Coverage
               </Link>
             </div>
-          </div>
+          </Reveal>
 
           {/* Solid info card — no gradient */}
-          <div className="lg:col-span-5">
+          <Reveal className="lg:col-span-5" delay={150}>
             <div className="rounded-xl border border-white/10 bg-white p-8 shadow-card">
               <p className="text-sm font-semibold uppercase tracking-wider text-accent">
                 Talk to an advisor
@@ -89,7 +90,7 @@ export default function HomePage() {
                 ))}
               </dl>
             </div>
-          </div>
+          </Reveal>
         </Container>
       </section>
 
@@ -102,14 +103,16 @@ export default function HomePage() {
             intro="Most agents can only sell you what one company offers. We compare the whole market."
           />
           <div className="mt-12 grid gap-6 md:grid-cols-3">
-            {pillars.map(({ Icon, title, body }) => (
-              <div key={title} className="rounded-lg border border-slate-200 bg-white p-7 shadow-card">
-                <div className="flex h-12 w-12 items-center justify-center rounded-md bg-navy text-white">
-                  <Icon size={22} />
+            {pillars.map(({ Icon, title, body }, i) => (
+              <Reveal key={title} className="h-full" delay={i * 100}>
+                <div className="h-full rounded-lg border border-slate-200 bg-white p-7 shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-md bg-navy text-white">
+                    <Icon size={22} />
+                  </div>
+                  <h3 className="mt-5 text-xl font-semibold text-navy">{title}</h3>
+                  <p className="mt-2 leading-relaxed text-slate-600">{body}</p>
                 </div>
-                <h3 className="mt-5 text-xl font-semibold text-navy">{title}</h3>
-                <p className="mt-2 leading-relaxed text-slate-600">{body}</p>
-              </div>
+              </Reveal>
             ))}
           </div>
         </Container>
@@ -120,20 +123,21 @@ export default function HomePage() {
         <Container>
           <SectionHeading eyebrow="What we cover" title="Coverage for every part of your life and business" />
           <div className="mt-12 grid gap-6 md:grid-cols-3">
-            {lines.map(({ Icon, title, href, body }) => (
-              <Link
-                key={title}
-                href={href}
-                className="group flex flex-col rounded-lg border border-slate-200 bg-white p-7 shadow-card transition-colors hover:border-navy"
-              >
-                <Icon size={28} className="text-accent" />
-                <h3 className="mt-5 text-xl font-semibold text-navy">{title}</h3>
-                <p className="mt-2 flex-1 leading-relaxed text-slate-600">{body}</p>
-                <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-navy">
-                  Learn more
-                  <ArrowRight size={15} className="transition-transform group-hover:translate-x-1" />
-                </span>
-              </Link>
+            {lines.map(({ Icon, title, href, body }, i) => (
+              <Reveal key={title} className="h-full" delay={i * 100}>
+                <Link
+                  href={href}
+                  className="group flex h-full flex-col rounded-lg border border-slate-200 bg-white p-7 shadow-card transition-all duration-300 hover:-translate-y-1 hover:border-navy hover:shadow-lg"
+                >
+                  <Icon size={28} className="text-accent" />
+                  <h3 className="mt-5 text-xl font-semibold text-navy">{title}</h3>
+                  <p className="mt-2 flex-1 leading-relaxed text-slate-600">{body}</p>
+                  <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-navy">
+                    Learn more
+                    <ArrowRight size={15} className="transition-transform group-hover:translate-x-1" />
+                  </span>
+                </Link>
+              </Reveal>
             ))}
           </div>
         </Container>
@@ -147,17 +151,19 @@ export default function HomePage() {
             title="Deep expertise in hard-to-place industries"
             intro="From excavating to aviation, our specialty teams place coverage that generalist agents can't."
           />
-          <div className="mt-12 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
-            {specialtyDivisions.map((d) => (
-              <div
-                key={d}
-                className="flex items-center gap-3 rounded-md border border-slate-200 bg-white px-4 py-3.5 text-sm font-medium text-navy"
-              >
-                <span className="h-1.5 w-1.5 flex-shrink-0 rounded-full bg-accent" />
-                {d}
-              </div>
-            ))}
-          </div>
+          <Reveal>
+            <div className="mt-12 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
+              {specialtyDivisions.map((d) => (
+                <div
+                  key={d}
+                  className="flex items-center gap-3 rounded-md border border-slate-200 bg-white px-4 py-3.5 text-sm font-medium text-navy transition-colors hover:border-accent"
+                >
+                  <span className="h-1.5 w-1.5 flex-shrink-0 rounded-full bg-accent" />
+                  {d}
+                </div>
+              ))}
+            </div>
+          </Reveal>
           <div className="mt-10">
             <Link href="/specialty" className="btn-ghost">
               View all specialty lines <ArrowRight size={16} />
@@ -169,7 +175,7 @@ export default function HomePage() {
       {/* Acquisitions band */}
       <section className="bg-navy-700">
         <Container className="flex flex-col items-start gap-6 py-14 lg:flex-row lg:items-center lg:justify-between">
-          <div className="max-w-2xl">
+          <Reveal className="max-w-2xl">
             <span className="text-xs font-semibold uppercase tracking-[0.18em] text-accent">
               Acquisitions
             </span>
@@ -180,10 +186,12 @@ export default function HomePage() {
               We partner with agency owners on succession and acquisition. Let&apos;s talk
               confidentially about your book of business.
             </p>
-          </div>
-          <Link href="/acquisitions" className="btn-primary flex-shrink-0">
-            Learn About Acquisitions
-          </Link>
+          </Reveal>
+          <Reveal className="flex-shrink-0" delay={120}>
+            <Link href="/acquisitions" className="btn-primary">
+              Learn About Acquisitions
+            </Link>
+          </Reveal>
         </Container>
       </section>
 
@@ -192,11 +200,13 @@ export default function HomePage() {
         <Container>
           <SectionHeading eyebrow="Our companies" title="A family of specialist agencies" />
           <div className="mt-12 grid gap-6 sm:grid-cols-2">
-            {relatedCompanies.map((c) => (
-              <div key={c.name} className="rounded-lg border border-slate-200 bg-white p-7 shadow-card">
-                <h3 className="text-lg font-semibold text-navy">{c.name}</h3>
-                <p className="mt-2 leading-relaxed text-slate-600">{c.body}</p>
-              </div>
+            {relatedCompanies.map((c, i) => (
+              <Reveal key={c.name} className="h-full" delay={i * 100}>
+                <div className="h-full rounded-lg border border-slate-200 bg-white p-7 shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+                  <h3 className="text-lg font-semibold text-navy">{c.name}</h3>
+                  <p className="mt-2 leading-relaxed text-slate-600">{c.body}</p>
+                </div>
+              </Reveal>
             ))}
           </div>
         </Container>
@@ -210,16 +220,18 @@ export default function HomePage() {
             title="States we operate in"
             intro={`Licensed and serving clients in ${company.statesCount}+ states across the country.`}
           />
-          <div className="mt-10 flex flex-wrap gap-2">
-            {usStates.map((s) => (
-              <span
-                key={s}
-                className="rounded border border-slate-200 bg-white px-3 py-1.5 text-sm text-slate-600"
-              >
-                {s}
-              </span>
-            ))}
-          </div>
+          <Reveal>
+            <div className="mt-10 flex flex-wrap gap-2">
+              {usStates.map((s) => (
+                <span
+                  key={s}
+                  className="rounded border border-slate-200 bg-white px-3 py-1.5 text-sm text-slate-600 transition-colors hover:border-accent hover:text-navy"
+                >
+                  {s}
+                </span>
+              ))}
+            </div>
+          </Reveal>
         </Container>
       </section>
 

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import PageHero from "@/components/PageHero";
 import { Container, SectionHeading, CtaBand } from "@/components/ui";
+import Reveal from "@/components/Reveal";
 
 export const metadata: Metadata = {
   title: "Our People",
@@ -38,8 +39,9 @@ export default function OurPeoplePage() {
             title="Meet the people you'll work with"
           />
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {team.map((m) => (
-              <div key={m.name} className="rounded-lg border border-slate-200 bg-white p-7 shadow-card">
+            {team.map((m, i) => (
+              <Reveal key={m.name} className="h-full" delay={(i % 3) * 100}>
+              <div className="h-full rounded-lg border border-slate-200 bg-white p-7 shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
                 {m.image ? (
                   <div className="relative h-16 w-16 overflow-hidden rounded-full border border-slate-200 shadow-sm">
                     <Image
@@ -58,6 +60,7 @@ export default function OurPeoplePage() {
                 <p className="text-sm font-medium text-accent">{m.role}</p>
                 <p className="mt-2 text-sm text-slate-500">Focus: {m.focus}</p>
               </div>
+              </Reveal>
             ))}
           </div>
         </Container>

@@ -4,6 +4,7 @@ import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import PageHero from "@/components/PageHero";
 import { Container, SectionHeading, CtaBand } from "@/components/ui";
+import Reveal from "@/components/Reveal";
 
 export const metadata: Metadata = {
   title: "Blog",
@@ -69,10 +70,10 @@ export default function BlogPage() {
         <Container>
           <SectionHeading eyebrow="Latest" title="Recent articles" />
           <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {posts.map((p) => (
+            {posts.map((p, i) => (
+              <Reveal key={p.title} className="h-full" delay={(i % 3) * 100}>
               <article
-                key={p.title}
-                className="group flex flex-col rounded-lg border border-slate-200 bg-white p-6 shadow-card transition-colors hover:border-navy"
+                className="group flex h-full flex-col rounded-lg border border-slate-200 bg-white p-6 shadow-card transition-all duration-300 hover:-translate-y-1 hover:border-navy hover:shadow-lg"
               >
                 {p.image && (
                   <div className="relative mb-5 aspect-[16/9] w-full overflow-hidden rounded-md border border-slate-100">
@@ -97,6 +98,7 @@ export default function BlogPage() {
                   <ArrowRight size={15} className="transition-transform group-hover:translate-x-1" />
                 </Link>
               </article>
+              </Reveal>
             ))}
           </div>
         </Container>

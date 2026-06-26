@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Container, SectionHeading, CtaBand } from "@/components/ui";
 import PageHero from "@/components/PageHero";
+import Reveal from "@/components/Reveal";
 
 export const metadata: Metadata = {
   title: "Agency Acquisitions",
@@ -39,12 +40,14 @@ export default function AcquisitionsPage() {
             title="A straightforward, owner-friendly process"
           />
           <div className="mt-12 grid gap-6 md:grid-cols-3">
-            {steps.map((s) => (
-              <div key={s.n} className="rounded-lg border border-slate-200 bg-white p-7 shadow-card">
-                <span className="font-serif text-3xl font-semibold text-accent">{s.n}</span>
-                <h3 className="mt-4 text-xl font-semibold text-navy">{s.title}</h3>
-                <p className="mt-2 leading-relaxed text-slate-600">{s.body}</p>
-              </div>
+            {steps.map((s, i) => (
+              <Reveal key={s.n} className="h-full" delay={i * 100}>
+                <div className="h-full rounded-lg border border-slate-200 bg-white p-7 shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+                  <span className="font-serif text-3xl font-semibold text-accent">{s.n}</span>
+                  <h3 className="mt-4 text-xl font-semibold text-navy">{s.title}</h3>
+                  <p className="mt-2 leading-relaxed text-slate-600">{s.body}</p>
+                </div>
+              </Reveal>
             ))}
           </div>
         </Container>
