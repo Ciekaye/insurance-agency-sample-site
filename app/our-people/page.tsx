@@ -6,12 +6,11 @@ import { Container, SectionHeading, CtaBand } from "@/components/ui";
 export const metadata: Metadata = {
   title: "Our People",
   description:
-    "Meet the independent advisors and specialty teams behind Wexford Insurance.",
+    "Meet the independent advisors and specialty teams behind Apex Insurance Group.",
 };
 
 const team = [
-  { name: "Nate Jones", role: "Chief Executive Officer", focus: "Agency Leadership" },
-  { name: "Michael Wexford", role: "Principal & Founder", focus: "Commercial Lines", image: "/images/team-michael.png" },
+  { name: "Michael Vance", role: "Principal & Founder", focus: "Commercial Lines", image: "/images/team-michael.png" },
   { name: "Sarah Bennett", role: "Director of Personal Lines", focus: "Home & Auto", image: "/images/team-sarah.png" },
   { name: "David Cho", role: "Transportation Lead", focus: "Trucking & Fleet", image: "/images/team-david.png" },
   { name: "Rachel Ortiz", role: "Contractor Division Lead", focus: "Trades & Bonds", image: "/images/team-rachel.png" },

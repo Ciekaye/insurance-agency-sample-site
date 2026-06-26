@@ -4,11 +4,11 @@
  */
 
 export const company = {
-  name: "Wexford Insurance",
+  name: "Apex Insurance Group",
   tagline: "An Independent Insurance Agency",
   phone: "317-942-0549",
   phoneHref: "tel:+13179420549",
-  email: "info@wexfordins.com",
+  email: "info@apexinsgroup.com",
   address: {
     line1: "107 N State Road 135, STE 304",
     line2: "Greenwood, IN 46142",
@@ -101,7 +101,7 @@ export const specialtyDivisions = [
 ];
 
 export const relatedCompanies = [
-  { name: "Wexford Insurance", body: "The parent agency, representing dozens of carriers across personal and commercial lines." },
+  { name: "Apex Insurance Group", body: "The parent agency, representing dozens of carriers across personal and commercial lines." },
   { name: "Excavating Insurance Partners", body: "A dedicated program for excavating and earth-moving contractors." },
   { name: "Total Work Comp", body: "Workers compensation specialists for hard-to-place and high-mod accounts." },
   { name: "One Hampton Insurance", body: "Boutique coverage and white-glove service for select clients." },

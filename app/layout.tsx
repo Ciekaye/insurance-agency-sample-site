@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     template: `%s | ${company.name}`,
   },
   description:
-    "Wexford Insurance is an independent agency representing 40+ carriers across 48+ states. Business, personal, contractor, trucking, and specialty coverage.",
+    "Apex Insurance Group is an independent agency representing 40+ carriers across 48+ states. Business, personal, contractor, trucking, and specialty coverage.",
 };
 
 export default function RootLayout({

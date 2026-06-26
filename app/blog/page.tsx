@@ -8,7 +8,7 @@ import { Container, SectionHeading, CtaBand } from "@/components/ui";
 export const metadata: Metadata = {
   title: "Blog",
   description:
-    "Insurance insights, coverage explainers, and risk-management tips from the Wexford Insurance team.",
+    "Insurance insights, coverage explainers, and risk-management tips from the Apex Insurance Group team.",
 };
 
 const posts = [
@@ -61,7 +61,7 @@ export default function BlogPage() {
     <>
       <PageHero
         eyebrow="Insights"
-        title="The Wexford Insurance blog"
+        title="The Apex Insurance Group blog"
         intro="Coverage explainers, risk-management tips, and straight answers to the questions clients ask us most."
         imageSrc="/images/blog-hero.png"
       />

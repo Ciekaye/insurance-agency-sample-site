@@ -43,7 +43,7 @@ export default function HomePage() {
           <div className="absolute inset-0 bg-navy/80 mix-blend-multiply z-10" />
           <Image
             src="/images/home-hero.png"
-            alt="Wexford Office"
+            alt="Apex Office"
             fill
             priority
             className="object-cover"
@@ -97,7 +97,7 @@ export default function HomePage() {
       <section className="py-20 lg:py-24">
         <Container>
           <SectionHeading
-            eyebrow="Why Wexford"
+            eyebrow="Why Apex"
             title="An independent agency, on your side"
             intro="Most agents can only sell you what one company offers. We compare the whole market."
           />

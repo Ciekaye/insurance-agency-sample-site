@@ -47,15 +47,34 @@ export default function Footer() {
       <div className="container grid gap-12 py-16 lg:grid-cols-4 lg:py-20">
         {/* Brand */}
         <div className="lg:col-span-1">
-          <div className="inline-flex rounded-lg bg-white p-3">
-            <Image
-              src="/logo.png"
-              alt={company.name}
-              width={570}
-              height={264}
-              className="h-9 w-auto"
-            />
-          </div>
+          <Link href="/" className="inline-flex items-center gap-3 rounded-lg bg-white px-4 py-3 shadow-sm border border-slate-100">
+            <div className="flex items-center justify-center">
+              <svg className="h-8 w-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="footer-grad-1" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#3D85C6" />
+                    <stop offset="100%" stopColor="#123B5F" />
+                  </linearGradient>
+                  <linearGradient id="footer-grad-2" x1="100%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stopColor="#2F6CA6" />
+                    <stop offset="100%" stopColor="#0E2D49" />
+                  </linearGradient>
+                </defs>
+                <path d="M12 3L2 19h9L12 3z" fill="url(#footer-grad-1)" />
+                <path d="M12 3l10 16h-9L12 3z" fill="url(#footer-grad-2)" />
+                <circle cx="12" cy="14" r="3" fill="#ffffff" />
+                <circle cx="12" cy="14" r="1.5" fill="url(#footer-grad-1)" />
+              </svg>
+            </div>
+            <span className="flex flex-col">
+              <span className="font-serif text-lg font-extrabold leading-none tracking-wider text-navy">
+                APEX
+              </span>
+              <span className="text-[8px] font-semibold uppercase tracking-[0.22em] text-slate-500 leading-none mt-1.5 font-sans">
+                Insurance Group
+              </span>
+            </span>
+          </Link>
           <p className="mt-4 text-sm leading-relaxed text-slate-400">
             An independent insurance agency. Because we&apos;re not tied to one company, we
             shop the market to find you the best coverage for the best price.

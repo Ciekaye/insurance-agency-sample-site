@@ -32,15 +32,33 @@ export default function Header() {
 
       {/* Main bar */}
       <div className="container flex h-16 items-center justify-between gap-6 lg:h-20">
-        <Link href="/" className="flex flex-shrink-0 items-center" onClick={() => setOpen(false)}>
-          <Image
-            src="/logo.png"
-            alt={`${company.name} — ${company.tagline}`}
-            width={570}
-            height={264}
-            priority
-            className="h-10 w-auto lg:h-12"
-          />
+        <Link href="/" className="flex flex-shrink-0 items-center gap-3" onClick={() => setOpen(false)}>
+          <div className="flex items-center justify-center">
+            <svg className="h-9 w-9 lg:h-11 lg:w-11" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="header-grad-1" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="#3D85C6" />
+                  <stop offset="100%" stopColor="#123B5F" />
+                </linearGradient>
+                <linearGradient id="header-grad-2" x1="100%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stopColor="#2F6CA6" />
+                  <stop offset="100%" stopColor="#0E2D49" />
+                </linearGradient>
+              </defs>
+              <path d="M12 3L2 19h9L12 3z" fill="url(#header-grad-1)" />
+              <path d="M12 3l10 16h-9L12 3z" fill="url(#header-grad-2)" />
+              <circle cx="12" cy="14" r="3" fill="#ffffff" />
+              <circle cx="12" cy="14" r="1.5" fill="url(#header-grad-1)" />
+            </svg>
+          </div>
+          <span className="flex flex-col">
+            <span className="font-serif text-xl font-extrabold leading-none tracking-wider text-navy lg:text-2xl">
+              APEX
+            </span>
+            <span className="text-[9px] font-semibold uppercase tracking-[0.25em] text-slate-500 leading-none mt-1 font-sans lg:text-[10px]">
+              Insurance Group
+            </span>
+          </span>
         </Link>
 
         {/* Desktop nav */}
